@@ -11,7 +11,7 @@ const BlockTracker = require('eth-block-tracker')
 
 module.exports = createEtherCoreClient
 
-function createInfuraClient ({ network, onRequest }) {
+function createEtherCoreClient ({ network, onRequest }) {
   const EtherCoreMiddleware = mergeMiddleware([
     createRequestHookMiddleware(onRequest),
     createEtherCoreMiddleware({ network, maxAttempts: 5, source: 'metamask' }),

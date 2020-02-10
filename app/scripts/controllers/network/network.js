@@ -189,7 +189,7 @@ module.exports = class NetworkController extends EventEmitter {
 
   _configureInfuraProvider ({ type }) {
     log.info('NetworkController - configureEtherCoreProvider', type)
-    const networkClient = createInfuraClient({
+    const networkClient = createEtherCoreClient({
       network: type,
       onRequest: (req) => this.emit('rpc-req', { network: type, req }),
     })
