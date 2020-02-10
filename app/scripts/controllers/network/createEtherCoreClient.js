@@ -12,21 +12,21 @@ const BlockTracker = require('eth-block-tracker')
 module.exports = createEtherCoreClient
 
 function createInfuraClient ({ network, onRequest }) {
-  const infuraMiddleware = mergeMiddleware([
+  const EtherCoreMiddleware = mergeMiddleware([
     createRequestHookMiddleware(onRequest),
     createEtherCoreMiddleware({ network, maxAttempts: 5, source: 'metamask' }),
   ])
-  const infuraProvider = providerFromMiddleware(infuraMiddleware)
-  const blockTracker = new BlockTracker({ provider: infuraProvider })
+  const EtherCoreProvider = providerFromMiddleware(EtherCoreMiddleware)
+  const blockTracker = new BlockTracker({ provider: EtherCoreProvider })
 
   const networkMiddleware = mergeMiddleware([
     createNetworkAndChainIdMiddleware({ network }),
     createBlockCacheMiddleware({ blockTracker }),
     createInflightMiddleware(),
-    createBlockReRefMiddleware({ blockTracker, provider: infraProvider }),
-    createRetryOnEmptyMiddleware({ blockTracker, provider: infraProvider }),
+    createBlockReRefMiddleware({ blockTracker, provider: EtherCoreProvider }),
+    createRetryOnEmptyMiddleware({ blockTracker, provider: EtherCoreProvider }),
     createBlockTrackerInspectorMiddleware({ blockTracker }),
-    infraMiddleware,
+    EtherCoreMiddleware,
   ])
   return { networkMiddleware, blockTracker }
 }
