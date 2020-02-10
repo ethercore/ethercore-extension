@@ -527,4 +527,3 @@ describe('preferences controller', function () {
     })
   })
 })
-

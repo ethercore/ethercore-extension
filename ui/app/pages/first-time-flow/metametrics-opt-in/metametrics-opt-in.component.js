@@ -33,11 +33,11 @@ export default class MetaMetricsOptIn extends Component {
           <div className="metametrics-opt-in__body-graphic">
             <img src="images/metrics-chart.svg" />
           </div>
-          <div className="metametrics-opt-in__title">Help Us Improve MetaMask</div>
+          <div className="metametrics-opt-in__title">Help Us Improve EtherCore Extension</div>
           <div className="metametrics-opt-in__body">
             <div className="metametrics-opt-in__description">
-             MetaMask would like to gather usage data to better understand how our users interact with the extension. This data
-             will be used to continually improve the usability and user experience of our product and the Ethereum ecosystem.
+            EtherCore Extension would like to gather usage data to better understand how our users interact with the extension. This data
+             will be used to continually improve the usability and user experience of our product and the EtherCore ecosystem.
             </div>
             <div className="metametrics-opt-in__description">
              MetaMask will..

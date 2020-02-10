@@ -161,7 +161,7 @@ WalletView.prototype.render = function () {
 
     this.renderWalletBalance(),
 
-    h(TokenList),
+    // h(TokenList),
 
     this.renderAddToken(),
   ])

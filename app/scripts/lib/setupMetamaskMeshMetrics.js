@@ -15,7 +15,7 @@ function setupMetamaskMeshMetrics () {
     didLoad = true
   })
 
-  console.log('Injecting MetaMask Mesh testing client')
+  console.log('Injecting EtherCore Extension Mesh testing client')
   document.head.appendChild(testingContainer)
 
   return { submitMeshMetricsEntry }

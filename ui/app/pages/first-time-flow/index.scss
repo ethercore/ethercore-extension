@@ -141,11 +141,11 @@
     align-items: center;
 
     &:hover {
-      border: 1.5px solid #2f9ae0;
+      border: 1.5px solid #3a6ea7;
     }
 
     .fa-check {
-      color: #2f9ae0
+      color: #3a6ea7
     }
   }
 
@@ -160,6 +160,6 @@
   }
 
   &__link-text {
-    color: $curious-blue;
+    color: $ere-blue;
   }
 }

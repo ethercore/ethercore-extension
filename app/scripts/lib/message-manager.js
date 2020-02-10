@@ -83,9 +83,9 @@ module.exports = class MessageManager extends EventEmitter {
           case 'signed':
             return resolve(data.rawSig)
           case 'rejected':
-            return reject(rpcErrors.eth.userRejectedRequest('MetaMask Message Signature: User denied message signature.'))
+            return reject(rpcErrors.eth.userRejectedRequest('EtherCore Extension Message Signature: User denied message signature.'))
           default:
-            return reject(new Error(`MetaMask Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
+            return reject(new Error(`EtherCore Extension Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
         }
       })
     })

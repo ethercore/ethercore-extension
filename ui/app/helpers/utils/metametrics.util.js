@@ -173,6 +173,7 @@ function composeUrl (config) {
 }
 
 export function sendMetaMetricsEvent (config, permissionPreferences) {
+  return false;
   return fetch(composeUrl(config, permissionPreferences), {
     'headers': {},
     'method': 'GET',

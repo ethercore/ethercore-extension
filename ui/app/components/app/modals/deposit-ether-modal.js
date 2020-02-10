@@ -10,11 +10,7 @@ import Button from '../../ui/button'
 
 let DIRECT_DEPOSIT_ROW_TITLE
 let DIRECT_DEPOSIT_ROW_TEXT
-let WYRE_ROW_TITLE
-let WYRE_ROW_TEXT
 let FAUCET_ROW_TITLE
-let COINSWITCH_ROW_TITLE
-let COINSWITCH_ROW_TEXT
 
 function mapStateToProps (state) {
   return {
@@ -51,11 +47,7 @@ function DepositEtherModal (_, context) {
   // need to set after i18n locale has loaded
   DIRECT_DEPOSIT_ROW_TITLE = context.t('directDepositEther')
   DIRECT_DEPOSIT_ROW_TEXT = context.t('directDepositEtherExplainer')
-  WYRE_ROW_TITLE = context.t('buyWithWyre')
-  WYRE_ROW_TEXT = context.t('buyWithWyreDescription')
   FAUCET_ROW_TITLE = context.t('testFaucet')
-  COINSWITCH_ROW_TITLE = context.t('buyCoinSwitch')
-  COINSWITCH_ROW_TEXT = context.t('buyCoinSwitchExplainer')
 }
 
 DepositEtherModal.contextTypes = {
@@ -151,7 +143,7 @@ DepositEtherModal.prototype.render = function () {
 
         this.renderRow({
           logo: h('img.deposit-ether-modal__logo', {
-            src: './images/deposit-eth.svg',
+            src: './images/mini-logo.svg',
             style: {
               height: '75px',
               width: '75px',
@@ -173,30 +165,17 @@ DepositEtherModal.prototype.render = function () {
         }),
 
         this.renderRow({
-          logo: h('div.deposit-ether-modal__logo', {
-            style: {
-              backgroundImage: 'url(\'./images/wyre.svg\')',
-              height: '40px',
-            },
+          logo: h('img.deposit-ether-modal__logo', {
+            src: './images/mini-logo.svg',
           }),
-          title: WYRE_ROW_TITLE,
-          text: WYRE_ROW_TEXT,
-          buttonLabel: this.context.t('continueToWyre'),
-          onButtonClick: () => toWyre(address),
-          hide: isTestNetwork,
-        }),
-
-        this.renderRow({
-          logo: h('div.deposit-ether-modal__logo', {
-            style: {
-              backgroundImage: 'url(\'./images/coinswitch_logo.png\')',
-              height: '40px',
-            },
-          }),
-          title: COINSWITCH_ROW_TITLE,
-          text: COINSWITCH_ROW_TEXT,
-          buttonLabel: this.context.t('continueToCoinSwitch'),
-          onButtonClick: () => toCoinSwitch(address),
+          title: 'Buy EtherCore in Any of our supported exchanges',
+          text: 'If you own other cryptocurrencies, you can trade and deposit EtherCore directly into your EtherCore Extension wallet',
+          buttonLabel: 'Buy EtherCore',
+          onButtonClick: (e) => {
+            e.stopPropagation();
+            const url = 'https://ethercore.org/#exchanges';
+            global.platform.openWindow({ url });
+          },
           hide: isTestNetwork,
         }),
 

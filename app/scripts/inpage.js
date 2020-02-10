@@ -16,7 +16,7 @@ const cleanContextForImports = () => {
   try {
     global.define = undefined
   } catch (_) {
-    console.warn('MetaMask - global.define could not be deleted.')
+    console.warn('EtherCore Extension - global.define could not be deleted.')
   }
 }
 
@@ -27,7 +27,7 @@ const restoreContextAfterImports = () => {
   try {
     global.define = __define
   } catch (_) {
-    console.warn('MetaMask - global.define could not be overwritten.')
+    console.warn('EtherCore Extension - global.define could not be overwritten.')
   }
 }
 
@@ -68,7 +68,7 @@ inpageProvider.enable = function ({ force } = {}) {
     !warnedOfAutoRefreshDeprecation &&
     inpageProvider.autoRefreshOnNetworkChange
   ) {
-    console.warn(`MetaMask: MetaMask will soon stop reloading pages on network change.
+    console.warn(`EtherCore Extension: EtherCore Extension will soon stop reloading pages on network change.
 If you rely upon this behavior, add a 'networkChanged' event handler to trigger the reload manually: https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider#ethereum.on(eventname%2C-callback)
 Set 'ethereum.autoRefreshOnNetworkChange' to 'false' to silence this warning: https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider#ethereum.autorefreshonnetworkchange'
 `)
@@ -159,18 +159,18 @@ window.ethereum = createStandardProvider(proxiedInpageProvider)
 //
 
 if (typeof window.web3 !== 'undefined') {
-  throw new Error(`MetaMask detected another web3.
-     MetaMask will not work reliably with another web3 extension.
-     This usually happens if you have two MetaMasks installed,
-     or MetaMask and another web3 extension. Please remove one
-     and try again.`)
+  throw new Error(`EtherCore Extension detected another web3.
+    EtherCore Extension will not work reliably with another web3 extension.
+    This usually happens if you have two EtherCore Extension installed,
+    or EtherCore Extension and another web3 extension. Please remove one
+    and try again.`)
 }
 
 const web3 = new Web3(proxiedInpageProvider)
 web3.setProvider = function () {
-  log.debug('MetaMask - overrode web3.setProvider')
+  log.debug('EtherCore Extension - overrode web3.setProvider')
 }
-log.debug('MetaMask - injected web3')
+log.debug('EtherCore Extension - injected web3')
 
 setupDappAutoReload(web3, inpageProvider.publicConfigStore)
 

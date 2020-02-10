@@ -6,15 +6,15 @@ const createBlockCacheMiddleware = require('eth-json-rpc-middleware/block-cache'
 const createInflightMiddleware = require('eth-json-rpc-middleware/inflight-cache')
 const createBlockTrackerInspectorMiddleware = require('eth-json-rpc-middleware/block-tracker-inspector')
 const providerFromMiddleware = require('eth-json-rpc-middleware/providerFromMiddleware')
-const createInfuraMiddleware = require('eth-json-rpc-infura')
+const createEtherCoreMiddleware = require('ethercore-json-rpc')
 const BlockTracker = require('eth-block-tracker')
 
-module.exports = createInfuraClient
+module.exports = createEtherCoreClient
 
 function createInfuraClient ({ network, onRequest }) {
   const infuraMiddleware = mergeMiddleware([
     createRequestHookMiddleware(onRequest),
-    createInfuraMiddleware({ network, maxAttempts: 5, source: 'metamask' }),
+    createEtherCoreMiddleware({ network, maxAttempts: 5, source: 'metamask' }),
   ])
   const infuraProvider = providerFromMiddleware(infuraMiddleware)
   const blockTracker = new BlockTracker({ provider: infuraProvider })
@@ -23,10 +23,10 @@ function createInfuraClient ({ network, onRequest }) {
     createNetworkAndChainIdMiddleware({ network }),
     createBlockCacheMiddleware({ blockTracker }),
     createInflightMiddleware(),
-    createBlockReRefMiddleware({ blockTracker, provider: infuraProvider }),
-    createRetryOnEmptyMiddleware({ blockTracker, provider: infuraProvider }),
+    createBlockReRefMiddleware({ blockTracker, provider: infraProvider }),
+    createRetryOnEmptyMiddleware({ blockTracker, provider: infraProvider }),
     createBlockTrackerInspectorMiddleware({ blockTracker }),
-    infuraMiddleware,
+    infraMiddleware,
   ])
   return { networkMiddleware, blockTracker }
 }
@@ -37,27 +37,11 @@ function createNetworkAndChainIdMiddleware ({ network }) {
 
   switch (network) {
     case 'mainnet':
-      netId = '1'
-      chainId = '0x01'
-      break
-    case 'ropsten':
-      netId = '3'
-      chainId = '0x03'
-      break
-    case 'rinkeby':
-      netId = '4'
-      chainId = '0x04'
-      break
-    case 'kovan':
-      netId = '42'
-      chainId = '0x2a'
-      break
-    case 'goerli':
-      netId = '5'
-      chainId = '0x05'
+      netId = '466'
+      chainId = '0x1d2'
       break
     default:
-      throw new Error(`createInfuraClient - unknown network "${network}"`)
+      throw new Error(`createEtherCoreClient - unknown network "${network}"`)
   }
 
   return createScaffoldMiddleware({

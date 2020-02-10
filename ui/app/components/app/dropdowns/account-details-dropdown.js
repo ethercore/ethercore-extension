@@ -76,13 +76,6 @@ AccountDetailsDropdown.prototype.render = function () {
     h(Item, {
       onClick: (e) => {
         e.stopPropagation()
-        this.context.metricsEvent({
-          eventOpts: {
-            category: 'Navigation',
-            action: 'Account Options',
-            name: 'Clicked Expand View',
-          },
-        })
         global.platform.openExtensionInBrowser()
         this.props.onClose()
       },
@@ -93,13 +86,6 @@ AccountDetailsDropdown.prototype.render = function () {
       onClick: (e) => {
         e.stopPropagation()
         showAccountDetailModal()
-        this.context.metricsEvent({
-          eventOpts: {
-            category: 'Navigation',
-            action: 'Account Options',
-            name: 'Viewed Account Details',
-          },
-        })
         this.props.onClose()
       },
       text: this.context.t('accountDetails'),
@@ -108,13 +94,6 @@ AccountDetailsDropdown.prototype.render = function () {
     h(Item, {
       onClick: (e) => {
         e.stopPropagation()
-        this.context.metricsEvent({
-          eventOpts: {
-            category: 'Navigation',
-            action: 'Account Options',
-            name: 'Clicked View on Etherscan',
-          },
-        })
         viewOnEtherscan(address, network, rpcPrefs)
         this.props.onClose()
       },
