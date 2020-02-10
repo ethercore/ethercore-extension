@@ -4,13 +4,10 @@ const EthQuery = require('eth-query')
 const log = require('loglevel')
 const pify = require('pify')
 const {
-  ROPSTEN,
   RINKEBY,
-  KOVAN,
   MAINNET,
-  GOERLI,
 } = require('./network/enums')
-const INFURA_PROVIDER_TYPES = [ROPSTEN, RINKEBY, KOVAN, MAINNET, GOERLI]
+const ETHERCORE_PROVIDER_TYPES = [RINKEBY, MAINNET]
 
 
 class RecentBlocksController {
@@ -51,15 +48,15 @@ class RecentBlocksController {
     }
     let isListening = false
     const { type } = networkController.getProviderConfig()
-    if (!INFURA_PROVIDER_TYPES.includes(type) && type !== 'loading') {
+    if (!ETHERCORE_PROVIDER_TYPES.includes(type) && type !== 'loading') {
       this.blockTracker.on('latest', blockListner)
       isListening = true
     }
     networkController.on('networkDidChange', (newType) => {
-      if (INFURA_PROVIDER_TYPES.includes(newType) && isListening) {
+      if (ETHERCORE_PROVIDER_TYPES.includes(newType) && isListening) {
         this.blockTracker.removeListener('latest', blockListner)
       } else if (
-        !INFURA_PROVIDER_TYPES.includes(type) &&
+        !ETHERCORE_PROVIDER_TYPES.includes(type) &&
         type !== 'loading' &&
         !isListening
       ) {
