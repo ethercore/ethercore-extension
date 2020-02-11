@@ -34,13 +34,13 @@ export default class TransactionListItemDetails extends PureComponent {
     const { hash, metamaskNetworkId } = primaryTransaction
 
     const prefix = prefixForNetwork(metamaskNetworkId)
-    const etherscanUrl = `https://${prefix}etherscan.io/tx/${hash}`
+    const etherscanUrl = `https://${prefix}explorer.ethercore.org/tx/${hash}`
 
     this.context.metricsEvent({
       eventOpts: {
         category: 'Navigation',
         action: 'Activity Log',
-        name: 'Clicked "View on Etherscan"',
+        name: 'Clicked "View on Explorer"',
       },
     })
 
