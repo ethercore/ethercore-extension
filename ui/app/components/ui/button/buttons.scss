@@ -36,17 +36,17 @@ $hover-orange: #FFD3B5;
 %link {
   @include h4;
 
-  color: $Blue-500;
+  color: $ere-blue;
   line-height: 1.25rem;
   cursor: pointer;
   background-color: transparent;
 
   &:hover {
-    color: $Blue-400;
+    color: $ere-blue;
   }
 
   &:active {
-    color: $Blue-600;
+    color: $ere-blue;
   }
 
   &--disabled,
@@ -68,17 +68,17 @@ $hover-orange: #FFD3B5;
 }
 
 .btn-secondary {
-  color: $Blue-500;
-  border: 2px solid $hover-secondary;
+  color: $ere-blue;
+  border: 2px solid $ere-blue;
   background-color: $white;
 
   &:hover {
-    border-color: $Blue-500;
+    border-color: $ere-blue;
   }
 
   &:active {
     background: $Blue-000;
-    border-color: $Blue-500;
+    border-color: $ere-blue;
   }
 
   &--disabled,
@@ -175,23 +175,23 @@ $hover-orange: #FFD3B5;
 
 .btn-primary {
   color: $white;
-  border: 2px solid $Blue-500;
-  background-color: $Blue-500;
+  border: 2px solid $ere-blue;
+  background-color: $ere-blue;
 
   &:hover {
-    border-color: $hover-confirm;
-    background-color: $hover-confirm;
+    border-color: $ere-blue;
+    background-color: $ere-blue;
   }
 
   &:active {
-    background: $Blue-600;
-    border-color: $Blue-600;
+    background: $ere-blue;
+    border-color: $ere-blue;
   }
 
   &--disabled,
   &[disabled] {
-    border-color: $hover-secondary;
-    background-color: $hover-secondary;
+    border-color: $ere-blue;
+    background-color: $ere-blue;
   }
 }
 
@@ -208,7 +208,7 @@ $hover-orange: #FFD3B5;
  */
 
 .btn-raised {
-  color: $curious-blue;
+  color: $ere-blue;
   background-color: $white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
   padding: 6px;
@@ -238,8 +238,8 @@ input[type="submit"][disabled] {
 
 button.primary {
   padding: 8px 12px;
-  background: #f7861c;
-  box-shadow: 0 3px 6px rgba(247, 134, 28, .36);
+  background: #3a6ea7;
+  box-shadow: .5em .5em 10px 0px rgba(226, 226, 226, 0.58);
   color: $white;
   font-size: 1.1em;
   font-family: Roboto;

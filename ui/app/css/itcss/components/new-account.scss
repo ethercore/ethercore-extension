@@ -43,8 +43,8 @@
     }
 
     &__selected {
-      color: $curious-blue;
-      border-bottom: 3px solid $curious-blue;
+      color: $ere-blue;
+      border-bottom: 3px solid $ere-blue;
       cursor: initial;
     }
   }
@@ -283,7 +283,7 @@
   }
 
   &__link {
-    color: #2f9ae0;
+    color: #3a6ea7;
   }
 
   &__footer {
@@ -306,7 +306,7 @@
     }
 
     &__link {
-      color: #2f9ae0;
+      color: #3a6ea7;
       margin-left: 5px;
     }
   }
@@ -324,7 +324,7 @@
     &__link {
       font-size: 14px;
       text-align: center;
-      color: #2f9ae0;
+      color: #3a6ea7;
       cursor: pointer;
     }
   }
@@ -489,7 +489,7 @@
   padding: 22px;
 
   a {
-    color: #2f9ae0;
+    color: #3a6ea7;
     font-size: 14px;
     cursor: pointer;
   }
